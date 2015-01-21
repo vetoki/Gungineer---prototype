@@ -3,6 +3,7 @@
 #pragma once
 
 class DrawManager;
+class SpriteManager;
 
 class Engine
 {
@@ -17,6 +18,7 @@ public:
 private:
 	void HandleEvents();
 	bool m_running;
-	DrawManager* m_drawmanager;
+	DrawManager* m_draw_manager;
+	SpriteManager* m_sprite_manager;
 	sf::Sprite* m_sprite;
 };

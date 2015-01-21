@@ -3,6 +3,7 @@
 #include "stdafx.h"
 #include "Engine.h"
 #include "DrawManager.h"
+#include "SpriteManager.h"
 
 Engine::Engine()
 {
@@ -11,7 +12,7 @@ Engine::Engine()
 
 Engine::~Engine()
 {
-
+	ShutDown();
 }
 
 bool Engine::Initialize()
@@ -19,9 +20,9 @@ bool Engine::Initialize()
 	int width = 1024;
 	int height = 600;
 
-	m_drawmanager = new DrawManager();
+	m_draw_manager = new DrawManager();
 
-	if (!m_drawmanager->Initialize(width, height))
+	if (!m_draw_manager->Initialize(width, height))
 		return false;
 
 	return true;
@@ -29,10 +30,10 @@ bool Engine::Initialize()
 
 void Engine::ShutDown()
 {
-	if (m_drawmanager)
+	if (m_draw_manager)
 	{
-		delete m_drawmanager;
-		m_drawmanager = nullptr;
+		delete m_draw_manager;
+		m_draw_manager = nullptr;
 	}
 }
 
@@ -43,9 +44,9 @@ void Engine::Update()
 		HandleEvents();
 	}
 
-	m_drawmanager->Clear();
+	m_draw_manager->Clear();
 	//m_drawmanager->Draw();
-	m_drawmanager->Present();
+	m_draw_manager->Present();
 }
 
 

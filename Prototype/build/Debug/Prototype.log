@@ -1,6 +1,15 @@
-﻿Build started 2015-01-21 15:25:22.
+﻿Build started 2015-01-21 15:28:26.
      1>Project "C:\Users\Anton\Documents\GitHub\Gungineer---prototype\Prototype\Prototype\Prototype.vcxproj" on node 2 (Build target(s)).
-     1>Link:
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\external\SFML\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"../build/Debug\Prototype.Debug.pch" /Fo"../build/Debug\\" /Fd"../build/Debug\vc120.pdb" /FR"../build/Debug\\" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\external\SFML\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"../build/Debug\Prototype.Debug.pch" /Fo"../build/Debug\\" /Fd"../build/Debug\vc120.pdb" /FR"../build/Debug\\" /Gd /TP /analyze- /errorReport:prompt DrawManager.cpp Engine.cpp main.cpp SpriteManager.cpp
+         SpriteManager.cpp
+         main.cpp
+         Engine.cpp
+         DrawManager.cpp
+         Generating Code...
+       Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"../bin/Prototype.Debug.exe" /INCREMENTAL /NOLOGO /LIBPATH:..\external\SFML\lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"../bin/Prototype.Debug.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"../bin/Prototype.Debug.lib" /MACHINE:X86 ../build/Debug\DrawManager.obj
          ../build/Debug\Engine.obj
          ../build/Debug\main.obj
@@ -13,4 +22,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.67
+Time Elapsed 00:00:01.44
