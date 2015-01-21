@@ -23,6 +23,8 @@ bool Engine::Initialize()
 
 	if (!m_drawmanager->Initialize(width, height))
 		return false;
+
+	return true;
 }
 
 void Engine::ShutDown()
