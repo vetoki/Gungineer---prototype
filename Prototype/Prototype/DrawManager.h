@@ -12,6 +12,7 @@ public:
 	void Clear();
 	void Present();
 	void Draw(sf::Sprite* sprite);
+	sf::RenderWindow* GetWindow();
 
 private:
 	sf::RenderWindow* m_window;

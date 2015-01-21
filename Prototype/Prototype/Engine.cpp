@@ -4,6 +4,7 @@
 #include "Engine.h"
 #include "DrawManager.h"
 #include "SpriteManager.h"
+#include "InputManager.h"
 
 Engine::Engine()
 {
@@ -21,11 +22,14 @@ bool Engine::Initialize()
 	int height = 600;
 
 	m_draw_manager = new DrawManager();
-
 	if (!m_draw_manager->Initialize(width, height))
 		return false;
 
-	return true;
+	m_sprite_manager = new SpriteManager();
+	m_input_manager = new InputManager();
+
+	m_running = true;
+	return m_running;
 }
 
 void Engine::ShutDown()
@@ -42,15 +46,31 @@ void Engine::Update()
 	while (m_running)
 	{
 		HandleEvents();
-	}
 
-	m_draw_manager->Clear();
-	//m_drawmanager->Draw();
-	m_draw_manager->Present();
+		/*if (!m_state_manager->update())
+		{
+		m_running = false
+		}*/
+
+		m_draw_manager->Clear();
+		//m_state_manager->Draw();
+		m_draw_manager->Present();
+	}
 }
 
 
 void Engine::HandleEvents()
 {
+	sf::RenderWindow* window = m_draw_manager->GetWindow();
+	sf::Event event;
+	while (window->pollEvent(event))
+	{
+		if (event.type == sf::Event::Closed)
+			m_running = false;
+	}
 
+	sf::Keyboard* keyboard = m_input_manager->GetKeyboard();
+	
+	if (keyboard->isKeyPressed(sf::Keyboard::Escape))
+		m_running = false;
 }

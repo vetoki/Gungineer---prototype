@@ -46,3 +46,8 @@ void DrawManager::Draw(sf::Sprite* sprite)
 {
 	m_window->draw(*sprite);
 }
+
+sf::RenderWindow* DrawManager::GetWindow()
+{
+	return m_window;
+}
