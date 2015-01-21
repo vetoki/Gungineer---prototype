@@ -42,7 +42,7 @@ void Engine::Update()
 	}
 
 	m_drawmanager->Clear();
-	m_drawmanager->Draw();
+	//m_drawmanager->Draw();
 	m_drawmanager->Present();
 }
 
