@@ -12,8 +12,8 @@
 		.h Created
 		.cpp Created
 	StateManager
-		.h ---
-		.cpp ---
+		.h Created
+		.cpp Created
 	CollisionManager
 		.h ---
 		.cpp ---
@@ -37,8 +37,7 @@
 		.cpp ---
 
 	State
-		.h ---
-		.cpp ---
+		.h Created
 
 	GameState
 		.h ---
