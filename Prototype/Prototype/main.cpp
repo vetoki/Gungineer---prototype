@@ -1,13 +1,18 @@
-// Prototype.cpp : Defines the entry point for the console application.
-//
+// main.cpp
 
 #include "stdafx.h"
+#include "Engine.h"
 
 
 int main(int argc, char* argv[])
 {
-	std::cout << "Test" << std::endl;
-	std::cout << "hello World!" <<std::endl;
+	Engine engine;
+
+	if (engine.Initialize())
+	{
+		engine.Update();
+	}
+	engine.ShutDown();
+
 	return 0;
 }
-
