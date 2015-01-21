@@ -1,0 +1,6 @@
+//CollisionMnager
+
+class CollisionManager
+{
+
+};

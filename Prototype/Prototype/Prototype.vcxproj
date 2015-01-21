@@ -93,6 +93,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="DrawManager.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="InputManager.h" />
