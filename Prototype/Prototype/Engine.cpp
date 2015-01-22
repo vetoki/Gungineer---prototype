@@ -6,6 +6,7 @@
 #include "SpriteManager.h"
 #include "InputManager.h"
 #include "State.h"
+#include "SoundManager.h"
 #include "StateManager.h"
 #include "GameState.h"
 
@@ -30,7 +31,7 @@ bool Engine::Initialize()
 
 	m_sprite_manager = new SpriteManager();
 	m_input_manager = new InputManager();
-
+	m_sound_manager = new SoundManager();
 	m_state_manager = new StateManager();
 	
 	System system;
@@ -39,7 +40,7 @@ bool Engine::Initialize()
 	system.draw_manager = m_draw_manager;
 	system.input_manager = m_input_manager;
 	system.sprite_manager = m_sprite_manager;
-	//system.sound_manager = m_sound_manager;
+	system.sound_manager = m_sound_manager;
 	m_state_manager->setState(new GameState(system));
 
 	m_running = true;
@@ -52,6 +53,30 @@ void Engine::ShutDown()
 	{
 		delete m_draw_manager;
 		m_draw_manager = nullptr;
+	}
+
+	if (m_input_manager)
+	{
+		delete m_input_manager;
+		m_input_manager = nullptr;
+	}
+
+	if (m_state_manager)
+	{
+		delete m_state_manager;
+		m_state_manager = nullptr;
+	}
+
+	if (m_sprite_manager)
+	{
+		delete m_sprite_manager;
+		m_sprite_manager = nullptr;
+	}
+
+	if (m_sound_manager)
+	{
+		delete m_sound_manager;
+		m_sound_manager = nullptr;
 	}
 }
 

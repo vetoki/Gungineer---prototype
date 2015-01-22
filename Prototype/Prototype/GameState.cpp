@@ -6,6 +6,7 @@
 #include "DrawManager.h"
 #include "StateManager.h"
 #include "SpriteManager.h"
+#include "SoundManager.h"
 
 #include "Entity.h"
 #include "Player.h"
@@ -16,7 +17,10 @@ GameState::GameState(System& system)
 {
 	m_systems = system;
 
-	sf::Sprite* sprite = m_systems.sprite_manager->CreateSprite("../assets/test.png", 0, 0, 128, 128);
+	sf::Music* music = m_systems.sound_manager->CreateMusic("../assets/TestMusic.wav");
+	music->play();
+
+	sf::Sprite* sprite = m_systems.sprite_manager->CreateSprite("../assets/Astronaut01.png", 0, 0, 128, 128);
 	sf::Keyboard* keyboard = m_systems.input_manager->GetKeyboard();
 
 	Player* player = new Player(sprite, keyboard);

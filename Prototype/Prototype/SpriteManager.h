@@ -1,4 +1,4 @@
-//spriteManager
+//spriteManager.h
 
 #pragma once
 
