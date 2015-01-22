@@ -21,6 +21,8 @@ GameState::GameState(System& system)
 
 	Player* player = new Player(sprite, keyboard);
 
+	m_entities.push_back(player);
+
 	m_active = false;
 }
 GameState::~GameState()
@@ -42,6 +44,13 @@ void GameState::Shutdown()
 }
 bool GameState::Update(float deltatime)
 {
+	for (unsigned int i = 0; i < m_entities.size(); i++)
+	{
+		m_entities[i]->Update(deltatime);
+	}
+
+	CollisionChecking();
+
 	return true;
 }
 void GameState::Draw()
@@ -50,7 +59,6 @@ void GameState::Draw()
 	{
 		if (!m_entities[i]->IsVisible())
 			continue;
-		std::cout << "Ping" << std::endl;
 		sf::Sprite sprite = *m_entities[i]->GetSprite();
 		if (m_entities[i])
 			m_systems.draw_manager->Draw(sprite);
