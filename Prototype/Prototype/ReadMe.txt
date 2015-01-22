@@ -48,6 +48,7 @@
 	Featuers
 ========================================================================
 
+
 	Essential:
 		Movement
 			- Player
@@ -55,6 +56,7 @@
 			- Projectiles
 
 		Shooting
+			- Projectile
 
 		Enemies
 
@@ -72,4 +74,22 @@
 
 		Varying types of enemies
 
-
+		Shooting
+			- Recoil(?)
+		
+		Areas:
+		Engingeroom
+		Engineering
+		Med-Bay
+		Living quarters
+		Plantation
+		Sciencelabs
+			Biology
+			Physics
+			Experimental
+		Armory
+		Bridge
+			Steering
+			Comms
+		Storage
+		Hangar Bay
