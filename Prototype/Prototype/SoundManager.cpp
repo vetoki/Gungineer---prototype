@@ -10,7 +10,14 @@ SoundManager::SoundManager()
 
 SoundManager::~SoundManager()
 {
-
+	for (int i = m_sounds.size(); i > 0; i--)
+	{
+		if (m_sounds[i - 1])
+		{
+			delete m_sounds[i - 1];
+		}
+	}
+	m_sounds.clear();
 }
 
 void SoundManager::DestroySound(sf::Sound* sound)
@@ -50,6 +57,7 @@ sf::Sound* SoundManager::CreateSound(std::string filename)
 
 	sf::Sound* sound = new sf::Sound();
 	sound->setBuffer(*it->second);
+	m_sounds.push_back(sound);
 	
 	return sound;
 }
