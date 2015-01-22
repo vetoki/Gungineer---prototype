@@ -34,7 +34,20 @@ sf::Sprite* SpriteManager::CreateSprite(const std::string& filename, int x, int 
 	return sprite;
 }
 
-void SpriteManager::DestrySprite()
+void SpriteManager::DestroySprite(sf::Sprite* sprite)
 {
-
+	auto it = m_sprites.begin();
+	while (it != m_sprites.end())
+	{
+		// if we find the right one 
+		if ((*it) == sprite)
+		{
+			// we delete the sprite
+			delete sprite;
+			// and remove it from the vector
+			m_sprites.erase(it);
+			break;
+		}
+		++it;
+	}
 }

@@ -5,6 +5,9 @@
 #include "DrawManager.h"
 #include "SpriteManager.h"
 #include "InputManager.h"
+#include "State.h"
+#include "StateManager.h"
+#include "GameState.h"
 
 Engine::Engine()
 {
@@ -18,8 +21,8 @@ Engine::~Engine()
 
 bool Engine::Initialize()
 {
-	int width = 1024;
-	int height = 600;
+	int width = 1280;
+	int height = 720;
 
 	m_draw_manager = new DrawManager();
 	if (!m_draw_manager->Initialize(width, height))
@@ -27,6 +30,17 @@ bool Engine::Initialize()
 
 	m_sprite_manager = new SpriteManager();
 	m_input_manager = new InputManager();
+
+	m_state_manager = new StateManager();
+	
+	System system;
+	system.width = width;
+	system.height = height;
+	system.draw_manager = m_draw_manager;
+	system.input_manager = m_input_manager;
+	system.sprite_manager = m_sprite_manager;
+	//system.sound_manager = m_sound_manager;
+	m_state_manager->setState(new GameState(system));
 
 	m_running = true;
 	return m_running;
@@ -47,13 +61,13 @@ void Engine::Update()
 	{
 		HandleEvents();
 
-		/*if (!m_state_manager->update())
+		if (!m_state_manager->Update())
 		{
-		m_running = false
-		}*/
+			m_running = false;
+		}
 
 		m_draw_manager->Clear();
-		//m_state_manager->Draw();
+		m_state_manager->Draw();
 		m_draw_manager->Present();
 	}
 }

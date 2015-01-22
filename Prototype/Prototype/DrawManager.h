@@ -11,7 +11,7 @@ public:
 	void ShutDown();
 	void Clear();
 	void Present();
-	void Draw(sf::Sprite* sprite);
+	void Draw(sf::Sprite sprite);
 	sf::RenderWindow* GetWindow();
 
 private:

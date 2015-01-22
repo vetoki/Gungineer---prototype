@@ -20,5 +20,4 @@ private:
 
 	State* m_active_state;
 	sf::Clock* m_clock;
-	sf::Time* m_time;
 };

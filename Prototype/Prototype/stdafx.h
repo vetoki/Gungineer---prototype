@@ -6,6 +6,11 @@
 
 #include <stdio.h>
 #include <tchar.h>
+
+#include <fstream>
+#include <sstream>
+#include <iostream>
+
 #include <string>
 #include <vector>
 #include <map>

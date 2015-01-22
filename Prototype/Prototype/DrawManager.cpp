@@ -16,7 +16,9 @@ DrawManager::~DrawManager()
 bool DrawManager::Initialize(int width, int height)
 {
 	m_window = new sf::RenderWindow();
-	m_window->create(sf::VideoMode(width, height), "Gungineer");
+	m_window->create(sf::VideoMode(width, height), "Last Signal - Prototype");
+	m_window->clear(sf::Color(0x11, 0x22, 0xFF, 0x44));
+
 
 	if (m_window == nullptr)
 	{
@@ -42,9 +44,9 @@ void DrawManager::Present()
 	m_window->display();
 }
 
-void DrawManager::Draw(sf::Sprite* sprite)
+void DrawManager::Draw(sf::Sprite sprite)
 {
-	m_window->draw(*sprite);
+	m_window->draw(sprite);
 }
 
 sf::RenderWindow* DrawManager::GetWindow()

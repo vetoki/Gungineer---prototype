@@ -7,8 +7,8 @@
 StateManager::StateManager()
 {
 	m_active_state = nullptr;
+	m_clock = new sf::Clock;
 	m_clock->restart();
-	*m_time = m_clock->getElapsedTime();
 }
 StateManager::~StateManager()
 {
@@ -17,6 +17,7 @@ StateManager::~StateManager()
 		delete m_active_state;
 		m_active_state = nullptr;
 	}
+	delete m_clock;
 }
 
 bool StateManager::Update()
