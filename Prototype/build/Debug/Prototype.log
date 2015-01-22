@@ -1,9 +1,16 @@
-﻿Build started 2015-01-22 13:43:18.
+﻿Build started 2015-01-22 13:48:35.
      1>Project "C:\Users\axel\Documents\GitHub\Gungineer---prototype\Prototype\Prototype\Prototype.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\VC\bin\CL.exe /c /I..\external\SFML\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"../build/Debug\Prototype.Debug.pch" /Fo"../build/Debug\\" /Fd"../build/Debug\vc120.pdb" /FR"../build/Debug\\" /Gd /TP /analyze- /errorReport:prompt Player.cpp
+         C:\Program Files (x86)\VC\bin\CL.exe /c /I..\external\SFML\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"../build/Debug\Prototype.Debug.pch" /Fo"../build/Debug\\" /Fd"../build/Debug\vc120.pdb" /FR"../build/Debug\\" /Gd /TP /analyze- /errorReport:prompt DrawManager.cpp Engine.cpp Entity.cpp GameState.cpp InputManager.cpp Player.cpp
          Player.cpp
      1>c:\users\axel\documents\github\gungineer---prototype\prototype\prototype\player.cpp(35): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+         InputManager.cpp
+         GameState.cpp
+     1>c:\users\axel\documents\github\gungineer---prototype\prototype\prototype\gamestate.cpp(58): warning C4018: '<' : signed/unsigned mismatch
+         Entity.cpp
+         Engine.cpp
+         DrawManager.cpp
+         Generating Code...
        Link:
          C:\Program Files (x86)\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"../bin/Prototype.Debug.exe" /INCREMENTAL /NOLOGO /LIBPATH:..\external\SFML\lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"../bin/Prototype.Debug.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"../bin/Prototype.Debug.lib" /MACHINE:X86 ../build/Debug\DrawManager.obj
          ../build/Debug\Engine.obj
@@ -15,6 +22,7 @@
          ../build/Debug\SpriteManager.obj
          ../build/Debug\StateManager.obj
          ../build/Debug\stdafx.obj
+         LINK : ../bin/Prototype.Debug.exe not found or not built by the last incremental link; performing full link
          Prototype.vcxproj -> C:\Users\axel\Documents\GitHub\Gungineer---prototype\Prototype\Prototype\../bin/Prototype.Debug.exe
        BscMake:
          C:\Program Files (x86)\VC\bin\bscmake.exe /nologo /o"../bin/Prototype.Debug.bsc" /n ../build/Debug\DrawManager.sbr ../build/Debug\Engine.sbr ../build/Debug\Entity.sbr ../build/Debug\GameState.sbr ../build/Debug\InputManager.sbr ../build/Debug\main.sbr ../build/Debug\Player.sbr ../build/Debug\SpriteManager.sbr ../build/Debug\StateManager.sbr ../build/Debug\stdafx.sbr
@@ -22,4 +30,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.71
+Time Elapsed 00:00:04.09
