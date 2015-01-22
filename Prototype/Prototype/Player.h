@@ -23,4 +23,9 @@ private:
 	float m_x;
 	float m_y;
 	float m_speed;
+	float m_direction;
+	float m_acceleration;
+	bool m_key_a;
+	bool m_key_d;
+
 };

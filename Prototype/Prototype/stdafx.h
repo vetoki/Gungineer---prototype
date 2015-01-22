@@ -6,6 +6,7 @@
 
 #include <stdio.h>
 #include <tchar.h>
+#include <math.h>
 
 #include <fstream>
 #include <sstream>

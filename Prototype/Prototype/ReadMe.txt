@@ -32,6 +32,8 @@
 		.h Created
 		.cpp Created
 
+		Acceleration made, need to fix directional movement based on angle of player(m_direction)
+
 	Room
 		.h ---
 		.cpp ---
