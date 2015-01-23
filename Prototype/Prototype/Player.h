@@ -7,7 +7,7 @@
 class Player : public Entity
 {
 public:
-	Player(sf::Sprite* sprite, sf::Keyboard* keyboard);
+	Player(sf::Sprite* sprite, sf::Keyboard* keyboard, int width, int height);
 	~Player();
 	void Update(float deltatime);
 	sf::Sprite* GetSprite();
@@ -15,6 +15,8 @@ public:
 	float GetX();
 	float GetY();
 	bool IsVisible();
+	void BounceX();
+	void BounceY();
 	EEntityType GetType();
 
 private:
@@ -24,8 +26,13 @@ private:
 	float m_y;
 	float m_speed;
 	float m_direction;
+	float m_angle;
 	float m_acceleration;
 	bool m_key_a;
 	bool m_key_d;
+	int m_screen_width;
+	int m_screen_height;
+	float d_x;
+	float d_y;
 
 };

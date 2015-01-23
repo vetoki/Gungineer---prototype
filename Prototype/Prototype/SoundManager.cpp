@@ -39,6 +39,7 @@ sf::Music* SoundManager::CreateMusic(std::string filename)
 {
 	sf::Music* music = new sf::Music();
 	music->openFromFile(filename);
+	music->setLoop(true);
 
 	return music;
 }

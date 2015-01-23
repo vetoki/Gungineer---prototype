@@ -23,7 +23,7 @@ GameState::GameState(System& system)
 	sf::Sprite* sprite = m_systems.sprite_manager->CreateSprite("../assets/Astronaut01.png", 0, 0, 128, 128);
 	sf::Keyboard* keyboard = m_systems.input_manager->GetKeyboard();
 
-	Player* player = new Player(sprite, keyboard);
+	Player* player = new Player(sprite, keyboard, m_systems.width, m_systems.height);
 
 	m_entities.push_back(player);
 

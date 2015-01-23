@@ -16,6 +16,9 @@
 #include <vector>
 #include <map>
 
+//Maths
+const float PI = 3.141592;
+
 //here be SFML
 #include <SFML\Main.hpp>
 #include <SFML\System.hpp>
