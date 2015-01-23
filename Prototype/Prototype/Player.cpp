@@ -3,13 +3,21 @@
 #include "stdafx.h"
 #include "Player.h"
 #include "InputManager.h"
+#include "DrawManager.h"
+#include "StateManager.h"
+#include "SpriteManager.h"
+#include "SoundManager.h"
 
-Player::Player(sf::Sprite* sprite, sf::Keyboard* keyboard, int width, int height)
+Player::Player(System &system)
 {
-	m_sprite = sprite;
-	m_keyboard = keyboard;
-	m_screen_width = width;
-	m_screen_height = height;
+	m_sprite = system.sprite_manager->CreateSprite("../assets/Astronaut01.png", 0, 0, 128, 128);
+	
+	m_keyboard = system.input_manager->GetKeyboard();
+	
+	m_thruster = system.sound_manager->CreateSound("../assets/TestEffect.wav");
+
+	m_screen_width = system.width;
+	m_screen_height = system.height;
 	m_x = m_screen_width / 2;
 	m_y = m_screen_height / 2;
 	m_speed = 0.0f;
@@ -30,14 +38,22 @@ Player::~Player()
 void Player::Update(float deltatime)
 {
 	if (m_keyboard->isKeyPressed(sf::Keyboard::Key::A))
+	{
 		m_key_a = true;
+	}
 	if (m_keyboard->isKeyPressed(sf::Keyboard::Key::D))
+	{
 		m_key_d = true;
+	}
 
 	if (!m_keyboard->isKeyPressed(sf::Keyboard::Key::A))
+	{
 		m_key_a = false;
+	}
 	if (!m_keyboard->isKeyPressed(sf::Keyboard::Key::D))
+	{
 		m_key_d = false;
+	}
 
 	if (m_key_a && m_key_d)
 	{
@@ -47,10 +63,12 @@ void Player::Update(float deltatime)
 	else if (m_key_a)
 	{
 		m_direction -= m_acceleration * -1000.0f * deltatime;
+		m_thruster->play();
 	}
 	else if (m_key_d)
 	{
 		m_direction += m_acceleration * -1000.0f * deltatime;
+		m_thruster->play();
 	}
 	if (m_direction >= 360.0f)
 		m_direction = 0.0f;
@@ -96,11 +114,10 @@ void Player::Update(float deltatime)
 
 
 
-	std::cout << d_x << ", " << d_y << ", " << m_speed << std::endl;
+	//std::cout << d_x << ", " << d_y << ", " << m_speed << std::endl;
 
-	//m_x += m_speed;
+	std::cout << m_thruster->getStatus() << std::endl;
 
-	//std::cout << m_direction << std::endl;
 	m_sprite->setRotation(m_direction);
 	m_sprite->setPosition(m_x, m_y);
 }

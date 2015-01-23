@@ -51,7 +51,6 @@ sf::Sound* SoundManager::CreateSound(std::string filename)
 	{
 		sf::SoundBuffer* buffer = new sf::SoundBuffer();
 		buffer->loadFromFile(filename);
-
 		m_buffers.insert(std::pair<std::string, sf::SoundBuffer*>(filename, buffer));
 		it = m_buffers.find(filename);
 	}

@@ -3,11 +3,12 @@
 #pragma once
 
 #include "Entity.h"
+#include "State.h"
 
 class Player : public Entity
 {
 public:
-	Player(sf::Sprite* sprite, sf::Keyboard* keyboard, int width, int height);
+	Player(System &system);
 	~Player();
 	void Update(float deltatime);
 	sf::Sprite* GetSprite();
@@ -34,5 +35,5 @@ private:
 	int m_screen_height;
 	float d_x;
 	float d_y;
-
+	sf::Sound* m_thruster;
 };

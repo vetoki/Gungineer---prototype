@@ -18,14 +18,9 @@ GameState::GameState(System& system)
 	m_systems = system;
 
 	sf::Music* music = m_systems.sound_manager->CreateMusic("../assets/TestMusic.wav");
-	music->play();
-
-	sf::Sound* thruster = m_systems.sound_manager->CreateSound("../assets/TestEffect.wav");
-
-	sf::Sprite* sprite = m_systems.sprite_manager->CreateSprite("../assets/Astronaut01.png", 0, 0, 128, 128);
-	sf::Keyboard* keyboard = m_systems.input_manager->GetKeyboard();
-
-	Player* player = new Player(sprite, keyboard, m_systems.width, m_systems.height);
+	//music->play();
+	
+	Player* player = new Player(m_systems);
 
 	m_entities.push_back(player);
 
