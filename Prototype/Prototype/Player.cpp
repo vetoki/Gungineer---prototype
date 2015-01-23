@@ -8,7 +8,7 @@ Player::Player(sf::Sprite* sprite, sf::Keyboard* keyboard)
 {
 	m_sprite = sprite;
 	m_keyboard = keyboard;
-	m_x = 0.0f;
+	m_x = 640.0f;
 	m_y = 360.0f;
 	m_speed = 0.0f;
 	m_direction = 180.0f;
@@ -35,7 +35,7 @@ void Player::Update(float deltatime)
 
 	if (m_key_a && m_key_d)
 	{
-		m_speed += m_acceleration * deltatime;
+		m_speed += m_acceleration * deltatime * 100;
 	}
 	else if (m_key_a)
 	{
@@ -54,23 +54,31 @@ void Player::Update(float deltatime)
 	
 	if (!m_key_a && !m_key_d && m_speed > 0.0f)
 	{
-		m_speed -= m_acceleration * deltatime;
+		m_speed -= m_acceleration * deltatime * 100;
 	}
 	else if (m_speed <= 0.0f)
 		m_speed = 0.0f;
 	
-	/*float d_x = 0.0f;
+	float d_x = 0.0f;
 	float d_y = 0.0f;
-	if (m_speed != 0.0f)
+	/*if (m_speed != 0.0f)
 	{
+		m_direction -= 90.0f;
+		if (m_direction < 0.0f)
+			m_direction = 360 - m_direction;
+
 		d_x = sin(m_direction) * (deltatime / m_speed) * 500.0f;
 		d_y = cos(m_direction) * (deltatime / m_speed) * 500.0f;
+
+		m_direction += 90.0f;
+		if (m_direction > 360.0f)
+			m_direction = m_direction - 360.0f;
 	}
 
-	m_x += d_x;
-	m_y += d_y;
+	m_x += d_x * 100;
+	m_y += d_y * 100;*/
 
-	std::cout << m_x << ", " << m_y << ", " << m_direction << std::endl;*/
+	std::cout << d_x << ", " << d_y << ", " << m_speed << std::endl;
 
 	m_x += m_speed;
 
