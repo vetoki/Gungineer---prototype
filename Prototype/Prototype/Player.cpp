@@ -61,14 +61,14 @@ void Player::Update(float deltatime)
 	
 	float d_x = 0.0f;
 	float d_y = 0.0f;
-	/*if (m_speed != 0.0f)
+	if (m_speed != 0.0f)
 	{
 		m_direction -= 90.0f;
 		if (m_direction < 0.0f)
 			m_direction = 360 - m_direction;
 
-		d_x = sin(m_direction) * (deltatime / m_speed) * 500.0f;
-		d_y = cos(m_direction) * (deltatime / m_speed) * 500.0f;
+		d_x = cos(m_direction) * (deltatime / m_speed) * 500.0f;
+		d_y = sin(m_direction) * (deltatime / m_speed) * 500.0f;
 
 		m_direction += 90.0f;
 		if (m_direction > 360.0f)
@@ -76,11 +76,11 @@ void Player::Update(float deltatime)
 	}
 
 	m_x += d_x * 100;
-	m_y += d_y * 100;*/
+	m_y += d_y * 100;
 
 	std::cout << d_x << ", " << d_y << ", " << m_speed << std::endl;
 
-	m_x += m_speed;
+	//m_x += m_speed;
 
 	//std::cout << m_direction << std::endl;
 	m_sprite->setPosition(m_x, m_y);
