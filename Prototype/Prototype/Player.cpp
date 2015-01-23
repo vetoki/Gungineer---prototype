@@ -14,7 +14,7 @@ Player::Player(System &system)
 	
 	m_keyboard = system.input_manager->GetKeyboard();
 	
-	m_thruster = system.sound_manager->CreateSound("../assets/TestEffect.wav");
+	m_thruster = system.sound_manager->CreateSound("../assets/TestEffect2.wav");
 
 	m_screen_width = system.width;
 	m_screen_height = system.height;
