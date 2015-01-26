@@ -10,7 +10,7 @@
 
 Player::Player(System &system)
 {
-	m_sprite = system.sprite_manager->CreateSprite("../assets/Astronaut01.png", 0, 0, 128, 128);
+	m_sprite = system.sprite_manager->CreateSprite("../assets/Astronaut_02.png", 0, 0, 128, 180);
 	
 	m_keyboard = system.input_manager->GetKeyboard();
 	
@@ -25,7 +25,7 @@ Player::Player(System &system)
 	m_angle = 180.0f;
 	m_acceleration = 100.0f;
 	m_sprite->setPosition(m_x, m_y);
-	m_sprite->setOrigin(64, 64);
+	m_sprite->setOrigin(64, 90);
 	m_sprite->setRotation(m_direction);
 
 	d_x = 0.0f;
@@ -116,7 +116,7 @@ void Player::Update(float deltatime)
 
 	//std::cout << d_x << ", " << d_y << ", " << m_speed << std::endl;
 
-	std::cout << m_thruster->getStatus() << std::endl;
+	//std::cout << m_thruster->getStatus() << std::endl;
 
 	m_sprite->setRotation(m_direction);
 	m_sprite->setPosition(m_x, m_y);

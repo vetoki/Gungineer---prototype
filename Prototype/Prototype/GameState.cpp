@@ -10,6 +10,7 @@
 
 #include "Entity.h"
 #include "Player.h"
+#include "SplitEnemy.h"
 
 #include "CollisionManager.h"
 
@@ -23,6 +24,12 @@ GameState::GameState(System& system)
 	Player* player = new Player(m_systems);
 
 	m_entities.push_back(player);
+
+	SplitEnemy* enemy1 = new SplitEnemy(m_systems);
+	enemy1->SetX(400);
+	enemy1->SetY(200);
+
+	m_entities.push_back(enemy1);
 
 	m_active = false;
 }
@@ -48,7 +55,23 @@ bool GameState::Update(float deltatime)
 	for (unsigned int i = 0; i < m_entities.size(); i++)
 	{
 		m_entities[i]->Update(deltatime);
+		if (m_entities[i]->GetType() == ENTITY_SPLIT_ENEMY)
+		{
+			SplitEnemy* enemy = static_cast<SplitEnemy*>(m_entities[i]);
+			if (enemy->GetSplitCounter() <= 0.0f)
+			{
+				SplitEnemy* newEnemy = new SplitEnemy(m_systems);
+				newEnemy->SetX(enemy->GetX() + 128);
+				newEnemy->SetY(enemy->GetY() + 128);
+				newEnemy->SetSplits(enemy->GetSplitsRemaining() - 1);
+				enemy->SetSplits(enemy->GetSplitsRemaining() - 1);
+				m_entities.push_back(newEnemy);
+				i = m_entities.size();
+			}
+		}
 	}
+
+	std::cout << m_entities.size() << std::endl;
 
 	CollisionChecking();
 

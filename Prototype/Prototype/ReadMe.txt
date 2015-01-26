@@ -43,7 +43,11 @@
 
 	GameState
 		.h Created
-		.cpp CreatedA
+		.cpp Created
+
+	SplitEnemy
+		.h Created
+		.cpp Created
 
 
 ========================================================================
@@ -62,7 +66,7 @@
 
 		Enemies
 
-		Power Up
+		Power Up	
 
 		Sounds
 			- Breathing

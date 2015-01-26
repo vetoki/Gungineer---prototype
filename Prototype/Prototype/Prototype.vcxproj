@@ -101,6 +101,7 @@
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="SoundManager.h" />
+    <ClInclude Include="SplitEnemy.h" />
     <ClInclude Include="SpriteManager.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateManager.h" />
@@ -110,12 +111,12 @@
   <ItemGroup>
     <ClCompile Include="DrawManager.cpp" />
     <ClCompile Include="Engine.cpp" />
-    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="SoundManager.cpp" />
+    <ClCompile Include="SplitEnemy.cpp" />
     <ClCompile Include="SpriteManager.cpp" />
     <ClCompile Include="StateManager.cpp" />
     <ClCompile Include="stdafx.cpp">
