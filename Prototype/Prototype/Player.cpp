@@ -11,7 +11,13 @@
 Player::Player(System &system)
 {
 	m_sprite = system.sprite_manager->CreateSprite("../assets/Astronaut_02.png", 0, 0, 128, 180);
-	
+	m_sprites.push_back(m_sprite);
+
+	m_thruster_l = system.sprite_manager->CreateSprite("../assets/Thruster_Left2.png", 0, 0, 128, 180);
+	m_sprites.push_back(m_thruster_l);
+	m_thruster_r = system.sprite_manager->CreateSprite("../assets/Thruster_Right2.png", 0, 0, 128, 180);
+	m_sprites.push_back(m_thruster_r);
+
 	m_keyboard = system.input_manager->GetKeyboard();
 	
 	m_thruster = system.sound_manager->CreateSound("../assets/TestEffect2.wav");
@@ -28,6 +34,16 @@ Player::Player(System &system)
 	m_sprite->setOrigin(64, 90);
 	m_sprite->setRotation(m_direction);
 
+	m_thruster_l->setPosition(m_x, m_y);
+	m_thruster_l->setOrigin(64, 90);
+	m_thruster_l->setRotation(m_direction);
+	m_thruster_l->setColor(sf::Color(255, 255, 255, 255));
+
+	m_thruster_r->setPosition(m_x, m_y);
+	m_thruster_r->setOrigin(64, 90);
+	m_thruster_r->setRotation(m_direction);
+	m_thruster_r->setColor(sf::Color(255, 255, 255, 255));
+
 	d_x = 0.0f;
 	d_y = 0.0f;
 }
@@ -40,19 +56,23 @@ void Player::Update(float deltatime)
 	if (m_keyboard->isKeyPressed(sf::Keyboard::Key::A))
 	{
 		m_key_a = true;
+		m_thruster_r->setColor(sf::Color(255, 255, 255, 255));
 	}
 	if (m_keyboard->isKeyPressed(sf::Keyboard::Key::D))
 	{
 		m_key_d = true;
+		m_thruster_l->setColor(sf::Color(255, 255, 255, 255));
 	}
 
 	if (!m_keyboard->isKeyPressed(sf::Keyboard::Key::A))
 	{
 		m_key_a = false;
+		m_thruster_r->setColor(sf::Color(255, 255, 255, 0));
 	}
 	if (!m_keyboard->isKeyPressed(sf::Keyboard::Key::D))
 	{
 		m_key_d = false;
+		m_thruster_l->setColor(sf::Color(255, 255, 255, 0));
 	}
 
 	if (m_key_a && m_key_d)
@@ -120,6 +140,10 @@ void Player::Update(float deltatime)
 
 	m_sprite->setRotation(m_direction);
 	m_sprite->setPosition(m_x, m_y);
+	m_thruster_l->setRotation(m_direction);
+	m_thruster_l->setPosition(m_x, m_y);
+	m_thruster_r->setRotation(m_direction);
+	m_thruster_r->setPosition(m_x, m_y);
 }
 
 void Player::BounceX()
@@ -142,6 +166,11 @@ sf::Sprite* Player::GetSprite()
 {
 	return m_sprite;
 }
+std::vector<sf::Sprite*> Player::GetSprites()
+{
+	return m_sprites;
+}
+
 float Player::GetX()
 {
 	return m_x;

@@ -24,13 +24,13 @@ GameState::GameState(System& system)
 	Player* player = new Player(m_systems);
 
 	m_entities.push_back(player);
-
+	/*
 	SplitEnemy* enemy1 = new SplitEnemy(m_systems);
 	enemy1->SetX(400);
 	enemy1->SetY(200);
 
 	m_entities.push_back(enemy1);
-
+	*/
 	m_active = false;
 }
 GameState::~GameState()
@@ -83,6 +83,15 @@ void GameState::Draw()
 	{
 		if (!m_entities[i]->IsVisible())
 			continue;
+		if (m_entities[i]->GetType() == ENTITY_PLAYER)
+		{
+			Player* player = static_cast<Player*>(m_entities[i]);
+			std::vector<sf::Sprite*> sprites = player->GetSprites();
+			for (int i = 0; i < sprites.size(); i++)
+			{
+				m_systems.draw_manager->Draw(*sprites[i]);
+			}
+		}
 		sf::Sprite sprite = *m_entities[i]->GetSprite();
 		if (m_entities[i])
 			m_systems.draw_manager->Draw(sprite);
