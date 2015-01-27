@@ -44,7 +44,21 @@ void GameState::Shutdown()
 	{
 		if (m_entities[i - 1])
 		{
-			m_systems.sprite_manager->DestroySprite(m_entities[i-1]->GetSprite());
+			if (m_entities[i - 1]->GetType() == ENTITY_PLAYER)
+			{
+				Player* player = static_cast<Player*>(m_entities[i - 1]);
+				std::vector<sf::Sprite*> sprites = player->GetSprites();
+				for (int j = sprites.size(); j > 0; j--)
+				{
+					if (sprites[j])
+						m_systems.sprite_manager->DestroySprite(sprites[j-1]);
+				}
+				sprites.clear();
+			}
+			else
+			{
+				m_systems.sprite_manager->DestroySprite(m_entities[i - 1]->GetSprite());
+			}
 			delete m_entities[i - 1];
 		}
 	}
