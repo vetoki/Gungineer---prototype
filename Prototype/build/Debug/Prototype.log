@@ -1,8 +1,18 @@
-﻿Build started 2015-01-27 14:55:30.
+﻿Build started 2015-01-27 15:25:56.
      1>Project "C:\Users\Anton\Documents\GitHub\Gungineer---prototype\Prototype\Prototype\Prototype.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\external\SFML\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"../build/Debug\Prototype.Debug.pch" /Fo"../build/Debug\\" /Fd"../build/Debug\vc120.pdb" /FR"../build/Debug\\" /Gd /TP /analyze- /errorReport:prompt CollisionManager.cpp
-         CollisionManager.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\external\SFML\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"../build/Debug\Prototype.Debug.pch" /Fo"../build/Debug\\" /Fd"../build/Debug\vc120.pdb" /FR"../build/Debug\\" /Gd /TP /analyze- /errorReport:prompt GameState.cpp Player.cpp
+         Player.cpp
+     1>c:\users\anton\documents\github\gungineer---prototype\prototype\prototype\player.cpp(38): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\anton\documents\github\gungineer---prototype\prototype\prototype\player.cpp(39): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\anton\documents\github\gungineer---prototype\prototype\prototype\player.cpp(138): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\anton\documents\github\gungineer---prototype\prototype\prototype\player.cpp(148): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+         GameState.cpp
+     1>c:\users\anton\documents\github\gungineer---prototype\prototype\prototype\gamestate.cpp(70): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\anton\documents\github\gungineer---prototype\prototype\prototype\gamestate.cpp(71): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\anton\documents\github\gungineer---prototype\prototype\prototype\gamestate.cpp(90): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\anton\documents\github\gungineer---prototype\prototype\prototype\gamestate.cpp(98): warning C4018: '<' : signed/unsigned mismatch
+         Generating Code...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"../bin/Prototype.Debug.exe" /INCREMENTAL /NOLOGO /LIBPATH:..\external\SFML\lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"../bin/Prototype.Debug.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"../bin/Prototype.Debug.lib" /MACHINE:X86 ../build/Debug\Collider.obj
          ../build/Debug\CollisionManager.obj
@@ -17,6 +27,7 @@
          ../build/Debug\StateManager.obj
          ../build/Debug\stdafx.obj
          ../build/Debug\TextureManager.obj
+         LINK : ../bin/Prototype.Debug.exe not found or not built by the last incremental link; performing full link
          Prototype.vcxproj -> C:\Users\Anton\Documents\GitHub\Gungineer---prototype\Prototype\Prototype\../bin/Prototype.Debug.exe
        BscMake:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\bscmake.exe /nologo /o"../bin/Prototype.Debug.bsc" /n ../build/Debug\Collider.sbr ../build/Debug\CollisionManager.sbr ../build/Debug\DrawManager.sbr ../build/Debug\Engine.sbr ../build/Debug\GameState.sbr ../build/Debug\InputManager.sbr ../build/Debug\main.sbr ../build/Debug\Player.sbr ../build/Debug\SoundManager.sbr ../build/Debug\SplitEnemy.sbr ../build/Debug\StateManager.sbr ../build/Debug\stdafx.sbr ../build/Debug\TextureManager.sbr
@@ -24,4 +35,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.10
+Time Elapsed 00:00:01.32

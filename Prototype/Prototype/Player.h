@@ -13,12 +13,13 @@ public:
 	void Update(float deltatime);
 	sf::Sprite* GetSprite();
 	std::vector<sf::Sprite*> GetSprites();
-	//Collider* GetCollider();
+	Collider* GetCollider();
 	float GetX();
 	float GetY();
 	bool IsVisible();
 	void BounceX();
 	void BounceY();
+	bool isEnter();
 	EEntityType GetType();
 
 private:
@@ -35,9 +36,11 @@ private:
 	float m_acceleration;
 	bool m_key_a;
 	bool m_key_d;
+	bool m_key_enter;
 	int m_screen_width;
 	int m_screen_height;
 	float d_x;
 	float d_y;
 	sf::Sound* m_thruster;
+	Collider* m_collider;
 };

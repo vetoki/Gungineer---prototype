@@ -5,9 +5,9 @@
 #include "InputManager.h"
 #include "DrawManager.h"
 #include "StateManager.h"
- 
 #include "SoundManager.h"
 #include "TextureManager.h"
+#include "Collider.h"
 
 Player::Player(System &system)
 {	
@@ -78,6 +78,10 @@ void Player::Update(float deltatime)
 		m_key_d = true;
 		m_thruster_l->setColor(sf::Color(255, 255, 255, 255));
 	}
+	if (m_keyboard->isKeyPressed(sf::Keyboard::Key::Return))
+	{
+		m_key_enter = true;
+	}
 
 	if (!m_keyboard->isKeyPressed(sf::Keyboard::Key::A))
 	{
@@ -89,6 +93,11 @@ void Player::Update(float deltatime)
 		m_key_d = false;
 		m_thruster_l->setColor(sf::Color(255, 255, 255, 0));
 	}
+	if (!m_keyboard->isKeyPressed(sf::Keyboard::Key::Return))
+	{
+		m_key_enter = false;
+	}
+
 
 	if (m_key_a && m_key_d)
 	{
@@ -176,7 +185,10 @@ void Player::BounceY()
 	d_y = -d_y ;
 	m_speed *= 0.5f;
 }
-
+Collider* Player::GetCollider()
+{
+	return m_collider;
+}
 sf::Sprite* Player::GetSprite()
 {
 	return m_sprite;
@@ -197,6 +209,10 @@ float Player::GetY()
 bool Player::IsVisible()
 {
 	return true;
+}
+bool Player::isEnter()
+{
+	return m_key_enter;
 }
 EEntityType Player::GetType()
 {
