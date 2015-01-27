@@ -50,7 +50,7 @@ void GameState::Shutdown()
 				std::vector<sf::Sprite*> sprites = player->GetSprites();
 				for (int j = sprites.size(); j > 0; j--)
 				{
-					if (sprites[j])
+					if (sprites[j-1])
 						m_systems.sprite_manager->DestroySprite(sprites[j-1]);
 				}
 				sprites.clear();
