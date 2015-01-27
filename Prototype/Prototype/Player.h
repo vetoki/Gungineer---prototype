@@ -13,7 +13,7 @@ public:
 	void Update(float deltatime);
 	sf::Sprite* GetSprite();
 	std::vector<sf::Sprite*> GetSprites();
-	//virtual Collider* GetCollider();
+	//Collider* GetCollider();
 	float GetX();
 	float GetY();
 	bool IsVisible();
