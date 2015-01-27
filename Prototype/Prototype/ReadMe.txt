@@ -5,7 +5,7 @@
 	DrawManager
 		.h Created
 		.cpp Created
-	SpriteManager
+	TextureManager
 		.h Created
 		.cpp Created
 	InputManager

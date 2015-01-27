@@ -22,6 +22,6 @@ private:
 
 	System m_systems;
 	std::vector<Entity*> m_entities;
-
+	sf::Sprite* m_background;
 	bool m_active;
 };

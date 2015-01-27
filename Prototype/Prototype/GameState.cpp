@@ -6,6 +6,7 @@
 #include "DrawManager.h"
 #include "StateManager.h"
 #include "SoundManager.h"
+#include "TextureManager.h"
 
 #include "Entity.h"
 #include "Player.h"
@@ -30,6 +31,11 @@ GameState::GameState(System& system)
 
 	m_entities.push_back(enemy1);
 	
+	sf::Texture* texture = m_systems.texture_manager->CreateTexture("../assets/Background Texture 7.png");
+	m_background = new sf::Sprite;
+	m_background->setTexture(*texture);
+	m_background->setTextureRect(sf::IntRect(0, 0, 1280, 720));
+
 	m_active = false;
 }
 GameState::~GameState()
@@ -47,6 +53,8 @@ void GameState::Shutdown()
 		}
 	}
 	m_entities.clear();
+
+	delete m_background;
 }
 bool GameState::Update(float deltatime)
 {
@@ -77,6 +85,8 @@ bool GameState::Update(float deltatime)
 }
 void GameState::Draw()
 {
+	m_systems.draw_manager->Draw(*m_background);
+
 	for (int i = 0; i < m_entities.size(); i++)
 	{
 		if (!m_entities[i]->IsVisible())
@@ -94,6 +104,12 @@ void GameState::Draw()
 		if (m_entities[i])
 			m_systems.draw_manager->Draw(sprite);
 	}
+	
+
+	sf::View* view = m_systems.draw_manager->GetView();
+	view->setCenter(m_entities[0]->GetX(), m_entities[0]->GetY());
+	m_systems.draw_manager->SetView(*view);
+	m_systems.draw_manager->GetWindow()->setView(*view);
 }
 State* GameState::NextState()
 {
