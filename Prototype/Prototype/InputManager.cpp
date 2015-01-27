@@ -17,8 +17,3 @@ sf::Keyboard* InputManager::GetKeyboard()
 {
 	return m_keyboard;
 }
-
-void InputManager::SetKeyboard(int key, bool state)
-{
-	
-}

@@ -3,10 +3,10 @@
 #pragma once
 
 class DrawManager;
-class SpriteManager;
 class InputManager;
 class StateManager;
 class SoundManager;
+class TextureManager;
 
 class Engine
 {
@@ -22,9 +22,8 @@ private:
 	void HandleEvents();
 	bool m_running;
 	DrawManager* m_draw_manager;
-	SpriteManager* m_sprite_manager;
 	InputManager* m_input_manager;
 	StateManager* m_state_manager;
 	SoundManager* m_sound_manager;
-	sf::Sprite* m_sprite;
+	TextureManager* m_texture_manager;
 };

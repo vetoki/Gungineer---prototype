@@ -13,7 +13,6 @@ public:
 	sf::Keyboard* GetKeyboard();
 
 private:
-	void SetKeyboard(int key, bool state);
 
 	sf::Keyboard* m_keyboard;
 };

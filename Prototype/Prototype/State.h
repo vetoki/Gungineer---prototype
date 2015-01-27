@@ -4,8 +4,8 @@
 
 class DrawManager;
 class InputManager;
-class SpriteManager;
 class SoundManager;
+class TextureManager;
 
 struct System
 {
@@ -13,8 +13,8 @@ struct System
 	int height;
 	DrawManager* draw_manager;
 	InputManager* input_manager;
-	SpriteManager* sprite_manager;
 	SoundManager* sound_manager;
+	TextureManager* texture_manager;
 };
 
 class State

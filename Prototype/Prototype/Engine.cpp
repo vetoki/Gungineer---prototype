@@ -3,12 +3,12 @@
 #include "stdafx.h"
 #include "Engine.h"
 #include "DrawManager.h"
-#include "SpriteManager.h"
 #include "InputManager.h"
 #include "State.h"
 #include "SoundManager.h"
 #include "StateManager.h"
 #include "GameState.h"
+#include "TextureManager.h"
 
 Engine::Engine()
 {
@@ -29,18 +29,18 @@ bool Engine::Initialize()
 	if (!m_draw_manager->Initialize(width, height))
 		return false;
 
-	m_sprite_manager = new SpriteManager();
 	m_input_manager = new InputManager();
 	m_sound_manager = new SoundManager();
 	m_state_manager = new StateManager();
+	m_texture_manager = new TextureManager();
 	
 	System system;
 	system.width = width;
 	system.height = height;
 	system.draw_manager = m_draw_manager;
 	system.input_manager = m_input_manager;
-	system.sprite_manager = m_sprite_manager;
 	system.sound_manager = m_sound_manager;
+	system.texture_manager = m_texture_manager;
 	m_state_manager->setState(new GameState(system));
 
 	m_running = true;
@@ -65,12 +65,6 @@ void Engine::ShutDown()
 	{
 		delete m_state_manager;
 		m_state_manager = nullptr;
-	}
-
-	if (m_sprite_manager)
-	{
-		delete m_sprite_manager;
-		m_sprite_manager = nullptr;
 	}
 
 	if (m_sound_manager)

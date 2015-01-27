@@ -5,12 +5,16 @@
 #include "InputManager.h"
 #include "DrawManager.h"
 #include "StateManager.h"
-#include "SpriteManager.h"
+
 #include "SoundManager.h"
+#include "TextureManager.h"
 
 SplitEnemy::SplitEnemy(System &system)
 {
-	m_sprite = system.sprite_manager->CreateSprite("../assets/test.png", 0, 0, 128, 128);
+	sf::Texture* texture = system.texture_manager->CreateTexture("../assets/test.png");
+	m_sprite = new sf::Sprite;
+	m_sprite->setTexture(*texture);
+	m_sprite->setTextureRect(sf::IntRect(0, 0, 128, 128));
 	m_sprite->setOrigin(64, 64);
 
 	m_screen_width = system.width;

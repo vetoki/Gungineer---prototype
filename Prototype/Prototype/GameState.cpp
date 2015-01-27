@@ -5,7 +5,6 @@
 #include "InputManager.h"
 #include "DrawManager.h"
 #include "StateManager.h"
-#include "SpriteManager.h"
 #include "SoundManager.h"
 
 #include "Entity.h"
@@ -24,13 +23,13 @@ GameState::GameState(System& system)
 	Player* player = new Player(m_systems);
 
 	m_entities.push_back(player);
-	/*
+	
 	SplitEnemy* enemy1 = new SplitEnemy(m_systems);
 	enemy1->SetX(400);
 	enemy1->SetY(200);
 
 	m_entities.push_back(enemy1);
-	*/
+	
 	m_active = false;
 }
 GameState::~GameState()
@@ -44,21 +43,6 @@ void GameState::Shutdown()
 	{
 		if (m_entities[i - 1])
 		{
-			if (m_entities[i - 1]->GetType() == ENTITY_PLAYER)
-			{
-				Player* player = static_cast<Player*>(m_entities[i - 1]);
-				std::vector<sf::Sprite*> sprites = player->GetSprites();
-				for (int j = sprites.size(); j > 0; j--)
-				{
-					if (sprites[j-1])
-						m_systems.sprite_manager->DestroySprite(sprites[j-1]);
-				}
-				sprites.clear();
-			}
-			else
-			{
-				m_systems.sprite_manager->DestroySprite(m_entities[i - 1]->GetSprite());
-			}
 			delete m_entities[i - 1];
 		}
 	}

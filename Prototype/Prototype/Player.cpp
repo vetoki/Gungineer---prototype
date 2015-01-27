@@ -5,17 +5,28 @@
 #include "InputManager.h"
 #include "DrawManager.h"
 #include "StateManager.h"
-#include "SpriteManager.h"
+ 
 #include "SoundManager.h"
+#include "TextureManager.h"
 
 Player::Player(System &system)
-{
-	m_sprite = system.sprite_manager->CreateSprite("../assets/Astronaut_02.png", 0, 0, 128, 180);
+{	
+	sf::Texture* texture = system.texture_manager->CreateTexture("../assets/Astronaut_02.png");
+	m_sprite = new sf::Sprite;
+	m_sprite->setTexture(*texture);
+	m_sprite->setTextureRect(sf::IntRect(0, 0, 128, 180));
 	m_sprites.push_back(m_sprite);
 
-	m_thruster_l = system.sprite_manager->CreateSprite("../assets/Thruster_Left2.png", 0, 0, 128, 180);
+	texture = system.texture_manager->CreateTexture("../assets/Thruster_Left2.png");
+	m_thruster_l = new sf::Sprite;
+	m_thruster_l->setTexture(*texture);
+	m_thruster_l->setTextureRect(sf::IntRect(0, 0, 128, 180));
 	m_sprites.push_back(m_thruster_l);
-	m_thruster_r = system.sprite_manager->CreateSprite("../assets/Thruster_Right2.png", 0, 0, 128, 180);
+
+	texture = system.texture_manager->CreateTexture("../assets/Thruster_Right2.png");
+	m_thruster_r = new sf::Sprite;
+	m_thruster_r->setTexture(*texture);
+	m_thruster_r->setTextureRect(sf::IntRect(0, 0, 128, 180));
 	m_sprites.push_back(m_thruster_r);
 
 	m_keyboard = system.input_manager->GetKeyboard();
@@ -49,7 +60,11 @@ Player::Player(System &system)
 }
 Player::~Player()
 {
-
+	for (int i = m_sprites.size(); i > 0; i--)
+	{
+		if (m_sprites[i - 1])
+			delete m_sprites[i - 1];
+	}
 }
 void Player::Update(float deltatime)
 {
